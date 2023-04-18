@@ -45,6 +45,17 @@ disp(Rk)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%Programación para el punto a del problema 2
+
+%Guardo en una variable la matriz de las rotaciones del enunciado
+Mat_Tr_rot = [0.966 -0.109 0.236;
+              0.243 0.694 -0.678;
+              -0.088 0.712 0.670];
+
+
+
+
+
 
 
 
