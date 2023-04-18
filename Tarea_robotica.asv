@@ -12,9 +12,6 @@ x = 40;
 y = 25;
 z = -15;
 
-%Defino las matrices de rotación pura sobre Z, Y y X
-
-
 %Obtengo la matriz Rk
 Rk = [(kx)^2*v+cos(theta) kx*ky*v-kz*sin(theta) kx*kz*v+ky*sin(theta);
       kx*ky*v+kz*sin(theta) (ky)^2*v+cos(theta) ky*kz*v-kx*sin(theta);
