@@ -55,10 +55,21 @@ Mat_Tr_rot = [0.966 -0.109 0.236;
 %Multiplicando las matrices de rotaciones puras en el orden Rx*Rz*Rx
 %obtengo la siguiente matriz:
 %
-%[cγ -sγcα sγsα;
-% cαsγ cγcα-sα^2 -cαcγsα-sαcα;
-% sαsγ sαcαcγ+sαcα cα^2-sα^2cγ]
+%[cβ -sβcγ sγsβ;
+% cαsβ cβcα-sαsγ -cαcβsγ-sαcγ;
+% sαsβ sαcβcγ+sγcα cαcγ-sαcβsγ]
 %
-%
+%Cada una de las operaciones de la matriz anterior corresponde al resultado
+%de la Mat_Tr_rot, por lo tanto, γ se obtiene con el arcocoseno de 0.966:
+
+beta = acosd(0.966);
+
+%Ahora, usando las posiciones r12 y r31 de la Mat_Tr_rot y de la matriz
+%multiplicada obtengo el ángulo α:
+
+alfa = atan2d(0.109, -0.088);
+
+
+
 
 
