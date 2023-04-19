@@ -54,11 +54,9 @@ Mat_Tr_rot = [0.966 -0.109 0.236;
 
 %Multiplicando las matrices de rotaciones puras en el orden Rx*Rz*Rx
 %obtengo la siguiente matriz:
-%
 %[cγ -sγcα sγsα;
 % cαsγ cγcα-sα^2 -cαcγsα-sαcα;
 % sαsγ sαcαcγ+sαcα cα^2-sα^2cγ]
-%
-%
+
 
 
