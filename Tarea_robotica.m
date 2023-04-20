@@ -92,8 +92,8 @@ disp(gamma)
 L1 = 250;
 L2 = 150;
 L3 = 80;
-theta1 = 25;
-theta2 = -160;
+theta1 = 25*pi/180;
+theta2 = -160*pi/180;
 d3max = 40;
 alpha1 = pi/2;
 alpha2 = -pi/2;
@@ -108,6 +108,8 @@ Link2 = Link([0, 0, L2, 1, alpha1, pi/2]);
 %Defino el tercer vínculo del robot
 Link3 = Link([d, 0, L3, 1, alpha2, pi/2]);
 
+bot = SerialLink([Link1 Link2 Link3], 'Pancho', 'my robot');
+bot.fkine([]);
 
 
 
