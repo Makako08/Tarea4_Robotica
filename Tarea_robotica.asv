@@ -95,18 +95,15 @@ L3 = 80;
 theta1 = 25;
 theta2 = -160;
 d3max = 40;
-alpha1 = pi/2;
-alpha2 = -pi/2;
-d=0;
 
 %Defino el primer vínculo del robot
-Link1 = Link([0, 0, 0, 1, 0, pi/2]);
+Link1 = Link('d', 0, 'a', 1, 'alpha', pi/2);
 
 %Defino el segundo vínculo del robot
-Link2 = Link([0, 0, L2, 1, alpha1, pi/2]);
+Link2 = Link('d', 0, 'L2', 1, pi/2, pi/2);
 
 %Defino el tercer vínculo del robot
-Link3 = Link([d, 0, L3, 1, alpha2, pi/2]);
+Link3 = Link('d', 0, L3, 1, -pi/2, pi/2);
 
 
 
