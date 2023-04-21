@@ -1,3 +1,16 @@
+
+disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
+disp('%%%% Tarea puntuable         %%%%')
+disp('%%%% Integrantes:            %%%%')
+disp('%%%% Carlos Echandi Jara     %%%%')
+disp('%%%% Carlos Elizondo Rojas   %%%%')
+disp('%%%% Lezzin Leiva Leiva      %%%%')
+disp('%%%% Marco Rodríguez Morales %%%%')
+disp('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
+
+
+disp('--------------------------------------------------------------------------------------------------------------')
+
 %Programación para el punto b del problema 1
 
 %Defino variables
@@ -35,18 +48,19 @@ Rk = [(kx)^2*v+cosd(theta) kx*ky*v-kz*sind(theta) kx*kz*v+ky*sind(theta);
 Rot = Rx*Ry*Rz;
 
 %Imprimo los valores de Rot y Rk
-%{
+disp('Punto b del problema 1')
 disp("Rot")
 disp(Rot)
 disp("Rk")
 disp(Rk)
-%}
-%R/ Las matrices resultantes son equivalentes con diferencias muy pequeñas
 
+disp('R/ Las matrices resultantes son equivalentes con diferencias muy pequeñas')
 
+disp('--------------------------------------------------------------------------------------------------------------')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Programación para el punto a del problema 2
+disp('Punto a del problema 2')
 
 %Guardo en una variable la matriz de las rotaciones del enunciado
 Mat_Tr_rot = [0.966 -0.109 0.236;
@@ -76,40 +90,33 @@ alfa = atan2d(0.109, -0.088);
 gamma = asind(0.236/sind(beta));
 
 %E imprimo los valores de α, β y γ
-%{
 disp("α: ")
 disp(alfa)
 disp("β:")
 disp(beta)
 disp("γ:")
 disp(gamma)
-%}
 
+disp('--------------------------------------------------------------------------------------------------------------')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Programación para el inciso e del problema 3
+disp('Inciso e del problema 3')
 
-L1 = 250;
-L2 = 150;
-L3 = 80;
+L2 = 0.150;
+L3 = 0.080;
+d3max = 0.040;
 theta1 = 25*pi/180;
 theta2 = -160*pi/180;
-d3max = 40;
-alpha1 = pi/2;
-alpha2 = -pi/2;
-d=0;
 
-%Defino el primer vínculo del robot
-Link1 = Link([0, 0, 0, 1, 0, pi/2]);
+Link1 = Link('d', 0, 'a', L2, 'alpha', pi/2);
+Link2 = Link('d', 0, 'a', L3, 'alpha', -pi/2);
+Link3 = Prismatic('theta', 0, 'a', 0, 'alpha', 0);
+Link3.qlim = [0 d3max];
 
-%Defino el segundo vínculo del robot
-Link2 = Link([0, 0, L2, 1, alpha1, pi/2]);
-
-%Defino el tercer vínculo del robot
-Link3 = Link([d, 0, L3, 1, alpha2, pi/2]);
-
-bot = SerialLink([Link1 Link2 Link3], 'Pancho', 'my robot');
-bot.fkine([]);
+bot = SerialLink([Link1 Link2 Link3], 'name', 'my robot');
+bot.fkine([theta1 theta2 d3max])
+bot.plot([theta1 theta2  d3max])
 
 
 
